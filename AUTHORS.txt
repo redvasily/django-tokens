@@ -1,0 +1,4 @@
+Author of django-tokens is Vasily Sulatskov <redvasily@gmail.com>
+
+UUIDField by gmandx with one minor modification taken from here: http://djangosnippets.org/snippets/1496/
+JSONField by Jasber taken from here: http://djangosnippets.org/snippets/1478/ 
