@@ -28,7 +28,7 @@ class TokenViewTest(TestCase):
         called = [False]
 
         @register('foo')
-        def callback(token):
+        def callback(request, token):
             self.assertEqual(obj.id, token.id)
             self.assertEqual(obj.token_type, token.token_type)
             self.assertEqual(obj.data, token.data)

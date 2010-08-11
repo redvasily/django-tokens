@@ -11,5 +11,5 @@ def handle_token(request, token):
     except KeyError:
         token.delete()
         return HttpResponseRedirect('/')
-    return handler(token)
+    return handler(request, token)
 
