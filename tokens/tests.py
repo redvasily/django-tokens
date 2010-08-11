@@ -9,11 +9,19 @@ from .models import Token
 
 
 class TokenModelTest(TestCase):
+    urls = 'tokens.urls'
+
     def testCreation(self):
         obj = Token.objects.create('foo', {'eggs': 'spam'},
             timedelta(days=1))
         obj.save()
         unicode(obj)
+
+    def testUrl(self):
+        obj = Token.objects.create('foo', {'eggs': 'spam'},
+            timedelta(days=1))
+        obj.save()
+        self.assertEqual(obj.url, reverse('token_handle', args=[obj.full_code]))
 
 
 class TokenViewTest(TestCase):

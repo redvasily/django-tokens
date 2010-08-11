@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from django.db import models
+from django.core.urlresolvers import reverse
 
 from uuidfield import UUIDField
 from jsonfield import JSONField
@@ -29,3 +31,7 @@ class Token(models.Model):
 
     def __unicode__(self):
         return u'%s - %s' % (self.token_type, self.full_code)
+
+    @property
+    def url(self):
+        return reverse('token_handle', args=[self.full_code])
