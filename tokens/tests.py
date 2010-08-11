@@ -48,5 +48,14 @@ class TokenViewTest(TestCase):
 
         self.assertTrue(called[0])
 
+    def testNoHandler(self):
+        obj = Token.objects.create('foo', {'eggs': 'spam'})
+        obj.save()
+
+        url = reverse('token_handle', args=[obj.full_code])
+        client = Client()
+        response = client.get(url)
+
+
     def tearDown(self):
         clear_handlers()
